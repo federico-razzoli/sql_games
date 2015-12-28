@@ -1,7 +1,9 @@
 anagram_sql
 ===========
 
-Anagram game, implemented with MariaDB/MySQL Stored Procedures... without a particular reason :) 
+Anagram game, implemented with MariaDB Stored Procedures... without a particular reason :) 
+
+It can run on Percona Server or Oracle MySQL, but will probably require some small changes, since I may have used MariaDB-specific features.
 
 Hot to play
 ===========
