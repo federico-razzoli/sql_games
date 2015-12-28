@@ -1,7 +1,9 @@
 hangman_sql
 ===========
 
-Hangman game, with ASCII pictures, implemented with MariaDB/MySQL Stored Procedures... without a particular readon :) 
+Hangman game, with ASCII pictures, implemented with MariaDB Stored Procedures... without a particular readon :) 
+
+It can run on Percona Server or Oracle MySQL, but will probably require some small changes, since I may have used MariaDB-specific features.
 
 Hot to play
 ===========
