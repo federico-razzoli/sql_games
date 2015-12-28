@@ -6,7 +6,9 @@ It can run on Percona Server or Oracle MySQL, but will probably require some sma
 
 To install this program:
 
-`mysql -uroot -p<your_pwd> < bulls_cows.sql`
+```
+mysql -uroot -p<your_pwd> < bulls_cows.sql
+```
 
 Type `CALL help()` to get a brief explaination about the game.
 
