@@ -1,5 +1,5 @@
 /*
-        Copright 2015, Federico Razzoli
+        Copright 2015, 2016  Federico Razzoli
         
         This program is free software: you can redistribute it and/or modify
         it under the terms of the GNU Affero General Public License as published by
@@ -148,7 +148,7 @@ END ||
 
 DROP PROCEDURE IF EXISTS help;
 CREATE PROCEDURE help()
-        MODIFIES SQL DATA
+        CONTAINS SQL
         COMMENT 'How to play'
 BEGIN
         SELECT CONCAT(
@@ -182,5 +182,4 @@ BEGIN
 END ||
 
 DELIMITER ;
-
 
