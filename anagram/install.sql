@@ -1,5 +1,5 @@
 /*
-        Copright 2015, Federico Razzoli
+        Copright 2015, 2016  Federico Razzoli
         
         This program is free software: you can redistribute it and/or modify
         it under the terms of the GNU Affero General Public License as published by
@@ -612,7 +612,7 @@ INSERT INTO word (language, word) VALUES
 DELIMITER ||
 
 CREATE PROCEDURE new()
-        READS SQL DATA
+        MODIFIES SQL DATA
         COMMENT 'Start new game'
 BEGIN
         DECLARE x INT DEFAULT NULL;
@@ -691,8 +691,8 @@ BEGIN
                 SET @_anagram_tries := 0;
                 SET @_anagram_language_name := NULL;
         ELSE
-                SELECT CONCAT_WS('',
-                          '\nNope! That''s not the word. Try again!'
+                SELECT CONCAT_WS(''
+                        , '\nNope! That''s not the word. Try again!'
                         , '\n'
                 ) AS `Message`;
         END IF;
@@ -703,7 +703,7 @@ CREATE PROCEDURE set_options(
         , IN p_min_length TINYINT UNSIGNED
         , IN p_max_length TINYINT UNSIGNED
 )
-        READS SQL DATA
+        CONTAINS SQL
         COMMENT 'Set language, min+max length'
 BEGIN
         SET @_anagram_language    := p_language;
