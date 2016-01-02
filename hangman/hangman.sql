@@ -1,6 +1,6 @@
 /*
     hangman_sql
-        Copyright Federico Razzoli  2013
+        Copyright Federico Razzoli  2013, 2015, 2016
         
         This file is part of hangman_sql.
         
