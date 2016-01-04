@@ -20,113 +20,75 @@
 
 CREATE DATABASE IF NOT EXISTS `hangman`
         DEFAULT CHARACTER SET 'utf8';
+USE hangman;
 
 
-CREATE TABLE IF NOT EXISTS `hangman`.`image`
-(
-        `num_fails` TINYINT UNSIGNED NOT NULL,
-        `image` VARCHAR(200) NOT NULL
+DELIMITER ||
+
+
+DROP PROCEDURE IF EXISTS install_game ||
+CREATE PROCEDURE install_game()
+        MODIFIES SQL DATA
+        COMMENT 'Installs Hangman'
+BEGIN
+        DECLARE CONTINUE HANDLER
+                FOR 1050, 1062
+        BEGIN END ;
         
-)
-        ENGINE = InnoDB;
-
-
-INSERT INTO `hangman`.`image` (`num_fails`, `image`) VALUES
+        CREATE TABLE IF NOT EXISTS `hangman`.`image`
         (
-                5,
-                CONCAT_WS('\n',
-                                '\n',
-                                '      -------',
-                                '      |     |',
-                                '      |     @',
-                                '      |    /|\\',
-                                '      |     |',
-                                '      |    / \\',
-                                '  .---|----------.',
-                                ' /    |         /|',
-                                '.--------------. |',
-                                '|______________|/',
-                                '\n',
-                                '    You lose!',
-                                '\n'
-                        )
-        ),
-        (
-                4,
-                CONCAT_WS('\n',
-                                '\n',
-                                '      -------',
-                                '      |     |',
-                                '      |     @',
-                                '      |    /|\\',
-                                '      |     |',
-                                '      |    /',
-                                '  .---|----------.',
-                                ' /    |         /|',
-                                '.--------------. |',
-                                '|______________|/',
-                                '\n'
-                        )
-        ),
-        (
-                3,
-                CONCAT_WS('\n',
-                                '\n',
-                                '      -------',
-                                '      |     |',
-                                '      |     @',
-                                '      |    / \\',
-                                '      |',
-                                '      |',
-                                '  .---|----------.',
-                                ' /    |         /|',
-                                '.--------------. |',
-                                '|______________|/',
-                                '\n'
-                        )
-        ),
-        (
-                2,
-                CONCAT_WS('\n',
-                                '\n',
-                                '      -------',
-                                '      |     |',
-                                '      |     @',
-                                '      |    /',
-                                '      |',
-                                '      |',
-                                '  .---|----------.',
-                                ' /    |         /|',
-                                '.--------------. |',
-                                '|______________|/',
-                                '\n'
-                        )
-        ),
-        (
-                1,
-                CONCAT_WS('\n',
+                `num_fails` TINYINT UNSIGNED NOT NULL,
+                `image` VARCHAR(200) NOT NULL,
+                PRIMARY KEY (num_fails)
+        )
+                ENGINE = InnoDB;
+        
+        TRUNCATE TABLE `hangman`.`image`;
+        INSERT INTO `hangman`.`image` (`num_fails`, `image`) VALUES
+                (
+                        5,
+                        CONCAT_WS('\n',
                                         '\n',
                                         '      -------',
                                         '      |     |',
                                         '      |     @',
-                                        '      |',
-                                        '      |',
-                                        '      |',
+                                        '      |    /|\\',
+                                        '      |     |',
+                                        '      |    / \\',
                                         '  .---|----------.',
                                         ' /    |         /|',
                                         '.--------------. |',
                                         '|______________|/',
+                                        '\n',
+                                        '    You lose!',
                                         '\n'
                                 )
-        ),
-        (
-                0,
-                CONCAT_WS('\n',
+                ),
+                (
+                        4,
+                        CONCAT_WS('\n',
                                         '\n',
                                         '      -------',
                                         '      |     |',
-                                        '      |',
-                                        '      |',
+                                        '      |     @',
+                                        '      |    /|\\',
+                                        '      |     |',
+                                        '      |    /',
+                                        '  .---|----------.',
+                                        ' /    |         /|',
+                                        '.--------------. |',
+                                        '|______________|/',
+                                        '\n'
+                                )
+                ),
+                (
+                        3,
+                        CONCAT_WS('\n',
+                                        '\n',
+                                        '      -------',
+                                        '      |     |',
+                                        '      |     @',
+                                        '      |    / \\',
                                         '      |',
                                         '      |',
                                         '  .---|----------.',
@@ -135,56 +97,107 @@ INSERT INTO `hangman`.`image` (`num_fails`, `image`) VALUES
                                         '|______________|/',
                                         '\n'
                                 )
-        );
+                ),
+                (
+                        2,
+                        CONCAT_WS('\n',
+                                        '\n',
+                                        '      -------',
+                                        '      |     |',
+                                        '      |     @',
+                                        '      |    /',
+                                        '      |',
+                                        '      |',
+                                        '  .---|----------.',
+                                        ' /    |         /|',
+                                        '.--------------. |',
+                                        '|______________|/',
+                                        '\n'
+                                )
+                ),
+                (
+                        1,
+                        CONCAT_WS('\n',
+                                                '\n',
+                                                '      -------',
+                                                '      |     |',
+                                                '      |     @',
+                                                '      |',
+                                                '      |',
+                                                '      |',
+                                                '  .---|----------.',
+                                                ' /    |         /|',
+                                                '.--------------. |',
+                                                '|______________|/',
+                                                '\n'
+                                        )
+                ),
+                (
+                        0,
+                        CONCAT_WS('\n',
+                                                '\n',
+                                                '      -------',
+                                                '      |     |',
+                                                '      |',
+                                                '      |',
+                                                '      |',
+                                                '      |',
+                                                '  .---|----------.',
+                                                ' /    |         /|',
+                                                '.--------------. |',
+                                                '|______________|/',
+                                                '\n'
+                                        )
+                );
+        
+        CREATE TABLE IF NOT EXISTS `hangman`.`word`
+        (
+                `word` VARCHAR(50) NOT NULL PRIMARY KEY
+        )
+                ENGINE = InnoDB;
 
+        INSERT IGNORE INTO `hangman`.`word` VALUES
+                ('Hangman'),
+                ('Long live and prosper'),
+                ('Debian'),
+                ('Fedora'),
+                ('Free as in free beer'),
+                ('CREATE TABLE'),
+                ('It rains cats and dogs'),
+                ('Paradise lost'),
+                ('Structured Query Language'),
+                ('Mr Tambourine Man'),
+                ('password'),
+                ('The good the bad and the ugly'),
+                ('The TRUE the FALSE and the UNKNOWN'),
+                ('GNU/Linux'),
+                ('CAPS LOCK'),
+                ('HyperText Markup Language'),
+                ('DataBase Management System'),
+                ('You will not guess this'),
+                ('Rocka rolla!'),
+                ('Waterfall'),
+                ('Moron'),
+                ('Rainbow'),
+                ('Right click'),
+                ('Associative array'),
+                ('Black and white'),
+                ('Heavy Metal'),
+                ('Batched Key Access'),
+                ('Recursive factorial'),
+                ('Negative integers'),
+                ('Rigel'),
+                ('Betelgeuse'),
+                ('XtraDB'),
+                ('Storage Engine'),
+                ('Comanche'),
+                ('Kernel'),
+                ('Dungeons and Dragons'),
+                ('Lullaby');
+END ||
 
-CREATE TABLE IF NOT EXISTS `hangman`.`word`
-(
-        `word` VARCHAR(50) NOT NULL PRIMARY KEY
-)
-        ENGINE = InnoDB;
+CALL install_game() ||
 
-INSERT IGNORE INTO `hangman`.`word` VALUES
-        ('Hangman'),
-        ('Long live and prosper'),
-        ('Debian'),
-        ('Fedora'),
-        ('Free as in free beer'),
-        ('CREATE TABLE'),
-        ('It rains cats and dogs'),
-        ('Paradise lost'),
-        ('Structured Query Language'),
-        ('Mr Tambourine Man'),
-        ('password'),
-        ('The good the bad and the ugly'),
-        ('The TRUE the FALSE and the UNKNOWN'),
-        ('GNU/Linux'),
-        ('CAPS LOCK'),
-        ('HyperText Markup Language'),
-        ('DataBase Management System'),
-        ('You will not guess this'),
-        ('Rocka rolla!'),
-        ('Waterfall'),
-        ('Moron'),
-        ('Rainbow'),
-        ('Right click'),
-        ('Associative array'),
-        ('Black and white'),
-        ('Heavy Metal'),
-        ('Batched Key Access'),
-        ('Recursive factorial'),
-        ('Negative integers'),
-        ('Rigel'),
-        ('Betelgeuse'),
-        ('XtraDB'),
-        ('Storage Engine'),
-        ('Comanche'),
-        ('Kernel'),
-        ('Dungeons and Dragons'),
-        ('Lullaby');
-
-
-DELIMITER ||
 
 
 DROP PROCEDURE IF EXISTS `hangman`.`new`;
