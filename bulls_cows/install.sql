@@ -18,9 +18,7 @@
 \W
 
 
-INSTALL SONAME 'ha_sequence';
-
-
+DROP DATABASE IF EXISTS bulls_cows;
 CREATE DATABASE bulls_cows
         DEFAULT CHARACTER SET utf8;
 USE bulls_cows;
@@ -182,4 +180,3 @@ BEGIN
 END ||
 
 DELIMITER ;
-
