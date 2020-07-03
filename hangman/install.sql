@@ -18,7 +18,8 @@
 */
 
 
-CREATE DATABASE IF NOT EXISTS `hangman`
+DROP DATABASE IF EXISTS `hangman`;
+CREATE DATABASE `hangman`
         DEFAULT CHARACTER SET 'utf8';
 USE hangman;
 
@@ -26,7 +27,7 @@ USE hangman;
 DELIMITER ||
 
 
-DROP PROCEDURE IF EXISTS install_game ||
+DROP PROCEDURE IF EXISTS install_game;
 CREATE PROCEDURE install_game()
         MODIFIES SQL DATA
         COMMENT 'Installs Hangman'
@@ -209,7 +210,7 @@ BEGIN
         SET @cur_ch = '';
         SET @found_chars = '';
         
-        SELECT `word` FROM `hangman`.`word` ORDER BY RAND() LIMIT 1 INTO @word;
+        SELECT `word` INTO @word FROM `hangman`.`word` ORDER BY RAND() LIMIT 1;
         SET @hidden = get_hidden_word(@word);
         
         SELECT CONCAT(
@@ -316,4 +317,3 @@ END ||
 DELIMITER ;
 
 COMMIT;
-
