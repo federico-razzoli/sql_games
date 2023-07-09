@@ -53,25 +53,7 @@ CREATE TABLE word
         ENGINE = InnoDB
 ;
 
-INSERT INTO word (language, word) VALUES
-          (NULL, 'amsterdam')
-        , (NULL, 'guatemala')
-        , (NULL, 'database')
-        , (NULL, 'computer')
-        , (NULL, 'AS/400')
-        , (NULL, 'pasta')
-        , (NULL, 'news')
-        , (NULL, 'radio')
-        , (NULL, 'nasa')
-        , (NULL, 'jazz')
-        , (NULL, 'blues')
-        , (NULL, 'rock')
-        , (NULL, 'beethoven')
-        , (NULL, 'mozart')
-        , (NULL, 'coyote')
-        , (NULL, 'igloo')
-        , (NULL, 'permafrost')
-;
+\. dict/_common.sql
 
 INSERT INTO language (code, label) VALUES ('en', 'English');
 
