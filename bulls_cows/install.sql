@@ -18,7 +18,17 @@
 \W
 
 
-INSTALL SONAME 'ha_sequence';
+-- Install the SEQUENCE storage engine if it's not present already
+DELIMITER ||
+BEGIN NOT ATOMIC
+        DECLARE CONTINUE HANDLER
+                FOR 1126
+        BEGIN
+                INSTALL SONAME 'ha_sequence';
+        END;
+        DO (SELECT seq FROM mysql.seq_1_to_1);
+END ||
+DELIMITER ;
 
 
 CREATE DATABASE bulls_cows
