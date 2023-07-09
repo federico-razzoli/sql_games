@@ -209,7 +209,7 @@ BEGIN
         SET @cur_ch = '';
         SET @found_chars = '';
         
-        SELECT `word` FROM `hangman`.`word` ORDER BY RAND() LIMIT 1 INTO @word;
+        SET @word := (SELECT `word` FROM `hangman`.`word` ORDER BY RAND() LIMIT 1);
         SET @hidden = get_hidden_word(@word);
         
         SELECT CONCAT(
