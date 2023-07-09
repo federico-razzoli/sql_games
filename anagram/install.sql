@@ -53,7 +53,7 @@ CREATE TABLE word
         ENGINE = InnoDB
 ;
 
-\. dict/_common.sql
+\. anagram/dict/_common.sql
 
 INSERT INTO language (code, label) VALUES ('en', 'English');
 
