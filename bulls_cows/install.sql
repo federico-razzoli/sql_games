@@ -19,7 +19,7 @@
 
 
 CREATE DATABASE bulls_cows
-        DEFAULT CHARACTER SET utf8;
+        DEFAULT CHARACTER SET utf8mb4;
 USE bulls_cows;
 
 

@@ -19,7 +19,7 @@
 
 
 CREATE DATABASE anagram
-        DEFAULT CHARACTER SET utf8;
+        DEFAULT CHARACTER SET utf8mb4;
 USE anagram;
 
 

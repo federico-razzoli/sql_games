@@ -22,7 +22,7 @@
 
 
 CREATE DATABASE IF NOT EXISTS `hangman`
-        DEFAULT CHARACTER SET 'utf8';
+        DEFAULT CHARACTER SET 'utf8mb4';
 USE hangman;
 
 
