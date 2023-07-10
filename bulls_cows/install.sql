@@ -25,7 +25,6 @@ USE bulls_cows;
 
 DELIMITER ||
 
-DROP PROCEDURE IF EXISTS new;
 CREATE PROCEDURE new()
         MODIFIES SQL DATA
         COMMENT 'Start new game'
@@ -62,7 +61,6 @@ BEGIN
 END ||
 
 
-DROP PROCEDURE IF EXISTS guess;
 CREATE PROCEDURE guess(IN p_number VARCHAR(100))
         MODIFIES SQL DATA
         COMMENT 'Guess secret number'
@@ -143,7 +141,6 @@ BEGIN
         END IF;
 END ||
 
-DROP PROCEDURE IF EXISTS help;
 CREATE PROCEDURE help()
         CONTAINS SQL
         COMMENT 'How to play'
