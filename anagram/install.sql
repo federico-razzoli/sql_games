@@ -196,9 +196,9 @@ DELIMITER ;
 
 -- create dictionaries
 
-\. anagram/dict/_common.sql
-\. anagram/dict/english.sql
-\. anagram/dict/deutsche.sql
-\. anagram/dict/italian.sql
-\. anagram/dict/spanish.sql
+\. dict/_common.sql
+\. dict/english.sql
+\. dict/deutsche.sql
+\. dict/italian.sql
+\. dict/spanish.sql
 
