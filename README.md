@@ -4,10 +4,10 @@ Games implemented as stored procedures for MariaDB. You can play them from the c
 
 Each game is in a separate directory. See the `README.md.` in each directory for a quick explanation of the game and how to play.
 
-To install all the games, just pass the `install.sql` file in the root directory to the mysql command-line client. For example:
+To install all the games, just invoke the `install.sh` file:
 
 ```
-mysql -uroot -p < install.sql
+./install.sh
 ```
 
 To install an individual game, run the `install.sql` file in the game directory as described above.
