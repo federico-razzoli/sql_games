@@ -18,7 +18,6 @@
 \W
 
 
-DROP DATABASE IF EXISTS anagram;
 CREATE DATABASE anagram
         DEFAULT CHARACTER SET utf8;
 USE anagram;
