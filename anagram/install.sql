@@ -118,8 +118,8 @@ BEGIN
                 SET x := x - 1;
         END WHILE;
         
-        -- make random anagram
-        -- and make sure anagram != word
+        -- compose a random anagram
+        -- and make sure that anagram != word
         SET @_anagram_anagram := @_anagram_word;
         WHILE@_anagram_anagram = @_anagram_word  DO
                 SET @_anagram_anagram := (
