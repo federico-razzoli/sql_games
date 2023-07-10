@@ -18,6 +18,21 @@
 \W
 
 
+DELIMITER ||
+BEGIN NOT ATOMIC
+    IF (
+        SELECT COUNT(*)
+            FROM information_schema.SCHEMATA
+            WHERE SCHEMA_NAME = 'anagram'
+    ) THEN
+        SIGNAL SQLSTATE '45000' SET
+            MESSAGE_TEXT = 'Database anagram exists'
+        ;
+    END IF;
+END ||
+DELIMITER ;
+
+
 CREATE DATABASE anagram
         DEFAULT CHARACTER SET utf8mb4;
 USE anagram;
