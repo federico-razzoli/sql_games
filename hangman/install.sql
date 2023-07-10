@@ -29,7 +29,6 @@ USE hangman;
 DELIMITER ||
 
 
-DROP PROCEDURE IF EXISTS install_game ||
 CREATE PROCEDURE install_game()
         MODIFIES SQL DATA
         COMMENT 'Installs Hangman'
@@ -202,8 +201,6 @@ END ||
 CALL install_game() ||
 
 
-
-DROP PROCEDURE IF EXISTS `hangman`.`new`;
 CREATE PROCEDURE `hangman`.`new`()
         READS SQL DATA
         COMMENT 'Start new game'
@@ -223,7 +220,6 @@ BEGIN
 END ||
 
 
-DROP PROCEDURE IF EXISTS `hangman`.`guess`;
 CREATE PROCEDURE `hangman`.`guess`(IN ch TEXT)
         READS SQL DATA
         COMMENT 'Guess next letter'
@@ -267,7 +263,6 @@ BEGIN
 END ||
 
 
-DROP PROCEDURE IF EXISTS `hangman`.`help`;
 CREATE PROCEDURE `hangman`.`help`()
         CONTAINS SQL
         COMMENT 'How to play'
@@ -284,7 +279,6 @@ BEGIN
 END ||
 
 
-DROP FUNCTION IF EXISTS `hangman`.`get_hidden_word`;
 CREATE FUNCTION `hangman`.`get_hidden_word`(word TEXT)
         RETURNS TEXT
         NOT DETERMINISTIC
