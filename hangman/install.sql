@@ -18,6 +18,9 @@
 */
 
 
+\W
+
+
 CREATE DATABASE IF NOT EXISTS `hangman`
         DEFAULT CHARACTER SET 'utf8';
 USE hangman;
