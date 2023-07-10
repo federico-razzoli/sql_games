@@ -28,4 +28,3 @@ CALL guess('tiger');
 ```
 
 You have 5 attempts. But if you try to guess the whole word and fail, you will lose.
-

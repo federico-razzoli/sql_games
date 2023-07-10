@@ -19,4 +19,3 @@ CALL help();
 ```
 
 This will show you a help that explains how to play.
-

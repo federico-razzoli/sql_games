@@ -29,4 +29,3 @@ CALL set_options('es', 4, 10);
 ```
 
 Use `NULL` to avoid minimum or maximum bound.
-

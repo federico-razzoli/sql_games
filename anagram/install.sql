@@ -215,4 +215,3 @@ DELIMITER ;
 \. dict/deutsche.sql
 \. dict/italian.sql
 \. dict/spanish.sql
-

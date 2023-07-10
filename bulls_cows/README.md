@@ -14,4 +14,3 @@ Type `CALL help()` to get a brief explaination about the game.
 
 I suspect that Mr Codd didn't elaborate the relational theory to let people play games.
 Oh, well, he would probably appreciate.
-
