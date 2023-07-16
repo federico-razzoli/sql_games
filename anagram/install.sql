@@ -41,7 +41,7 @@ USE anagram;
 CREATE TABLE language
 (
         id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
-        code CHAR(2) NOT NULL,
+        code CHAR(5) NOT NULL,
         label VARCHAR(50) NOT NULL,
         PRIMARY KEY (id),
         UNIQUE INDEX unq_code (code)
@@ -214,4 +214,5 @@ DELIMITER ;
 \. dict/english.sql
 \. dict/deutsche.sql
 \. dict/italian.sql
+\. dict/scots.sql
 \. dict/spanish.sql
