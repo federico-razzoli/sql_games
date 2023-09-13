@@ -181,6 +181,11 @@ BEGIN
         
 END ||
 
+CREATE PROCEDURE show_languages()
+BEGIN
+        SELECT * FROM language;
+END ||
+
 CREATE PROCEDURE help()
         CONTAINS SQL
         COMMENT 'How to play'
