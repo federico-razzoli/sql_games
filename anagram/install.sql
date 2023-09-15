@@ -181,6 +181,11 @@ BEGIN
         
 END ||
 
+CREATE PROCEDURE show_languages()
+BEGIN
+        SELECT * FROM language;
+END ||
+
 CREATE PROCEDURE help()
         CONTAINS SQL
         COMMENT 'How to play'
@@ -203,6 +208,9 @@ BEGIN
                         , 'To change the language and set a minimum/maximum length for the words:\n'
                         , 'CALL set_options(''es'', 4, 10);\n'
                         , 'Use NULL to avoid minimum or maximum bound.\n'
+                        , '\n'
+                        , 'To list all the available languages\n'
+                        , 'CALL show_languages();\n'
                 ) AS `Message`;
 END ||
 
